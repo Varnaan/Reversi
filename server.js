@@ -13,12 +13,12 @@ let file = new static.Server(directory);
 
 const app = http.createServer(
     function (req, res) {
-        request.addListener('end',
+        req.addListener('end',
             function () {
-                file.server(req, res);
+                file.serve(req, res);
             }
         ).resume();
     }
 ).listen(port);
 
-console.log("Server runnin' on" + port);
+console.log("Server runnin' on " + port);
